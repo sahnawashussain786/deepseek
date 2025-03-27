@@ -31,7 +31,14 @@ export default function Home() {
             <p>How can I help you today?</p>
             </>
           ):
-          (<div></div>)}
+          (
+          <div>
+
+          </div>
+        )
+        }
+        {/* ------ prompt box ------- */}
+        <p className="text-xs absolute bottom-1 text-gray-500">AI-generated, for reference only</p>
         </div>
       </div>
     </div>
