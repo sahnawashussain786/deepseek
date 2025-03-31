@@ -46,7 +46,13 @@ const Sidebar = ({ expand, setExpand }) => {
             </div>
           </div>
         </div>
-        <button className={`mt-8 flex items-center justify-center cursor-pointer ${expand ? 'bg-primary hover:opacity-90 rounded-2xl gap-2 p-2.5 w-max' : 'group relative h-9 w-9 mx-auto hover:bg-gray-500/30 rounded-lg'}`}>
+        <button
+          className={`mt-8 flex items-center justify-center cursor-pointer ${
+            expand
+              ? "bg-primary hover:opacity-90 rounded-2xl gap-2 p-2.5 w-max"
+              : "group relative h-9 w-9 mx-auto hover:bg-gray-500/30 rounded-lg"
+          }`}
+        >
           <Image
             className={expand ? "w-6" : "w-7"}
             src={expand ? assets.chat_icon : assets.chat_icon_dull}
@@ -58,6 +64,43 @@ const Sidebar = ({ expand, setExpand }) => {
           </div>
           {expand && <p className="text-white text font-medium">New Chat</p>}
         </button>
+        <div
+          className={`mt-8 text-white/25 text-sm ${
+            expand ? "block" : "hidden"
+          }`}
+        >
+          <p className="my-1">Recents</p>
+          {/* chat label */}
+        </div>
+      </div>
+      <div>
+        <div className={`flex items-center cursor-pointer group relative ${expand ? 'gap-1 text-white-80 text-sm p-2.5 border border-primary rounded-lg hover:bg-white/10 cursor-pointer' : 'h-10 w-10 mx-auto hover:bg-gray-500/30 rounded-lg'}`}>
+          <Image
+            src={expand ? assets.phone_icon : assets.phone_icon_dull}
+            alt=""
+            className={expand ? "w-5" : "w-6.5 mx-auto"}
+          />
+          <div
+            className={`absolute -top-60 pb-8 ${
+              expand && "-right-40"
+            } opacity-0 group-hover:opacity-100 hidden group-hover:block transition`}
+          >
+            <div className="relative w-max bg-black text-white text-sm p-3 rounded-lg shadow-lg">
+              <Image src={assets.qrcode} alt="" className="w-44" />
+              <p>Scan to get DeepSeek App</p>
+              <div
+                className={`w-3 h-3 absolute bg-black rotate-45 ${
+                  expand ? "right-1/2" : "left-4"
+                } -bottom-1.5`}
+              ></div>
+            </div>
+          </div>
+          {expand && (
+            <>
+              <span>Get App</span> <Image src={assets.new_icon} alt="" />
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
